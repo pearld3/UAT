@@ -26,9 +26,16 @@
 </head>
 
 <body>
-  <iframe
-    src="https://script.google.com/macros/s/AKfycbz5AMs8otZ9cXMZAIPRZgxi0Nk5sPkS3gH8i5lvPVSlvjyv4ia9KJ_eser2c23Wm9400Q/exec?co=1&role=owner"
-    allowfullscreen>
-  </iframe>
+  <iframe id="appFrame" allowfullscreen></iframe>
+
+  <script>
+    const APP_BASE_URL = "https://script.google.com/macros/s/AKfycbz5AMs8otZ9cXMZAIPRZgxi0Nk5sPkS3gH8i5lvPVSlvjyv4ia9KJ_eser2c23Wm9400Q/exec";
+
+    // This takes whatever comes after your GitHub URL and passes it to Apps Script
+    // Example: /TEST1/?co=1&role=owner
+    const queryString = window.location.search;
+
+    document.getElementById("appFrame").src = APP_BASE_URL + queryString;
+  </script>
 </body>
 </html>
